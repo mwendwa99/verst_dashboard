@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useAppContext } from "../../../context/AppContext";
 import styles from "./Sidebar.module.css";
+
 // Define menu structure
 const menuItems = [
   {
@@ -88,8 +89,8 @@ const menuItems = [
 // Memoized submenu component for better performance
 const SubMenu = memo(({ isOpen, items }) => (
   <ul
-    className={`${styles.subMenu} 
-  ${isOpen ? styles.open : ""}`}
+    className={`${styles.subMenu}
+${isOpen ? styles.open : ""}`}
   >
     {items.map((item) => (
       <li key={item.path} className={styles.navItem}>

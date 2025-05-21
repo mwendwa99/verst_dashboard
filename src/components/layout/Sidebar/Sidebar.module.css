@@ -14,7 +14,6 @@
   padding: var(--spacing-4) 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Prevent content spilling */
 }
 
 .sidebar.collapsed {
@@ -35,7 +34,7 @@
 }
 
 .collapsed .logo img {
-  display: none; /* Hides the logo image when collapsed */
+  /* display: none; */
 }
 
 .nav {
@@ -124,10 +123,6 @@
 
 .collapsed .subMenu {
   display: none; /* Hides the submenu when collapsed */
-  /* max-height: 0;
-  visibility: hidden;
-  transition: max-height var(--transition-fast) ease-out,
-    visibility 0s linear var(--transition-fast); */
 }
 
 .subMenu.open {
@@ -186,9 +181,8 @@
 
 @media (max-width: 768px) {
   .sidebar {
+    width: var(--sidebar-width-collapsed);
     transform: translateX(0);
-    transition: transform var(--transition-fast) ease-out;
-    will-change: transform;
   }
 
   .sidebar.collapsed {

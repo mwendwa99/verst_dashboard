@@ -2,6 +2,7 @@ import React, {
   createContext,
   useContext,
   useState,
+  useEffect,
   type ReactNode,
 } from "react";
 import type {
@@ -29,6 +30,7 @@ interface AppContextType {
   user: User;
   isSidebarOpen: boolean;
   toggleSidebar: () => void;
+  setIsSidebarOpen: (isOpen: boolean) => void; // Added for responsive control
   metricCards: MetricCard[];
   projectCategories: ProjectCategory[];
   projects: Project[];
@@ -61,12 +63,32 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  // Check for mobile screens on initial load
+  useEffect(() => {
+    const handleResize = () => {
+      // Set sidebar collapsed on mobile screens
+      if (window.innerWidth <= 768) {
+        setIsSidebarOpen(false);
+      } else {
+        setIsSidebarOpen(true);
+      }
+    };
+
+    // Set initial state
+    handleResize();
+
+    // Update on resize
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
         user,
         isSidebarOpen,
         toggleSidebar,
+        setIsSidebarOpen, // Exposing the setter for responsive control
         metricCards,
         projectCategories,
         projects,
