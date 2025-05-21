@@ -8,14 +8,19 @@ import {
   Factory,
   Palmtree,
 } from "lucide-react";
-import type { ProjectCategory } from "../../../types";
+import type { ProjectCategory, ChartData } from "../../../types";
 import styles from "./CategoryTabs.module.css";
+import ProjectsBarChart from "../ProjectsBarChart";
 
 interface CategoryTabsProps {
   categories: ProjectCategory[];
+  chartData: ChartData[];
 }
 
-const CategoryTabs: React.FC<CategoryTabsProps> = ({ categories }) => {
+const CategoryTabs: React.FC<CategoryTabsProps> = ({
+  categories,
+  chartData,
+}) => {
   const [activeCategory, setActiveCategory] = useState<string>("1");
 
   const getCategoryIcon = (iconName: string) => {
@@ -56,6 +61,7 @@ const CategoryTabs: React.FC<CategoryTabsProps> = ({ categories }) => {
           </div>
         ))}
       </div>
+      <ProjectsBarChart data={chartData} />
     </div>
   );
 };

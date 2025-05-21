@@ -3,7 +3,6 @@ import { ChevronDown } from "lucide-react";
 import { useAppContext } from "../../context/AppContext";
 import MetricCard from "../../components/dashboard/MetricCard";
 import CategoryTabs from "../../components/dashboard/CategoryTabs";
-import ProjectsBarChart from "../../components/dashboard/ProjectsBarChart/ProjectsBarChart";
 import UserInsightsChart from "../../components/dashboard/UserInsightsChart/UserInsightsChart";
 import KenyaMap from "../../components/dashboard/KenyaMap/KenyaMap";
 import styles from "./Dashboard.module.css";
@@ -95,9 +94,7 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      <CategoryTabs categories={projectCategories} />
-
-      <ProjectsBarChart data={chartData} />
+      <CategoryTabs categories={projectCategories} chartData={chartData} />
 
       <div className={styles.chartsGrid}>
         <UserInsightsChart data={userInsights} totalUsers={totalUsers} />

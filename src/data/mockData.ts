@@ -151,11 +151,11 @@ export const mockProjects: Project[] = [
 ];
 
 export const mockChartData: ChartData[] = [
-  { name: "Jan", approved: 65, pending: 22, rejected: 15 },
-  { name: "Feb", approved: 50, pending: 24, rejected: 18 },
+  { name: "Jan", approved: 650, pending: 300, rejected: 200 },
+  { name: "Feb", approved: 200, pending: 290, rejected: 150 },
   { name: "Mar", approved: 35, pending: 18, rejected: 12 },
-  { name: "Apr", approved: 55, pending: 14, rejected: 9 },
-  { name: "May", approved: 42, pending: 19, rejected: 14 },
+  { name: "Apr", approved: 94, pending: 14, rejected: 9 },
+  { name: "May", approved: 42, pending: 180, rejected: 14 },
   { name: "Jun", approved: 48, pending: 16, rejected: 12 },
   { name: "Jul", approved: 38, pending: 18, rejected: 15 },
   { name: "Aug", approved: 52, pending: 20, rejected: 16 },

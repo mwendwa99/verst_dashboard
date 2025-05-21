@@ -1,9 +1,6 @@
 .chartContainer {
   background-color: var(--color-white);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-6);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: var(--spacing-6);
+  margin-top: var(--spacing-16);
 }
 
 .header {
@@ -32,9 +29,9 @@
 
 .legend {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--spacing-4);
-  margin-top: var(--spacing-4);
+  margin: var(--spacing-10) var(--spacing-6);
 }
 
 .legendItem {
@@ -70,15 +67,72 @@
   font-weight: var(--font-weight-medium);
 }
 
+.customTooltip {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--spacing-2) 0;
+  position: relative;
+  width: 300px;
+}
+
+.tooltipLine {
+  border: none;
+  border-top: 1px solid var(--color-gray-200);
+  margin: var(--spacing-2) 0;
+
+  width: 100%;
+}
+
+.tooltipLabel {
+  padding: var(--spacing-2);
+  /* font-weight: var(--font-weight-semibold); */
+  margin-bottom: var(--spacing-1);
+  color: var(--color-gray-900);
+  font-size: var(--font-size-xs);
+}
+
+.tooltipTotal {
+  padding: var(--spacing-2) var(--spacing-2);
+  margin-top: var(--spacing-1);
+  /* font-weight: var(--font-weight-medium); */
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-700);
+}
+
+.tooltipArrow {
+  position: absolute;
+  bottom: -8px; /* Adjust to control how much the arrow protrudes */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--color-gray-200); /* Border color of the tooltip */
+}
+
+.tooltipArrow::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: -9px; /* Adjust to align with the border-top of the parent */
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--color-white); /* Background color of the tooltip */
+}
+
 @media (max-width: 768px) {
   .chartContainer {
     padding: var(--spacing-4);
   }
-  
+
   .chartWrapper {
     height: 250px;
   }
-  
+
   .legend {
     flex-wrap: wrap;
   }
