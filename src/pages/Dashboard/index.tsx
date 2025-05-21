@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
     function handleClickOutside(event: MouseEvent) {
       if (
         dropdownRef.current &&
-        (dropdownRef.current as HTMLElement).contains(event.target as Node)
+        !(dropdownRef.current as HTMLElement).contains(event.target as Node)
       ) {
         setIsDropdownOpen(false);
       }

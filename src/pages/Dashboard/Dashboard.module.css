@@ -74,7 +74,7 @@
 }
 
 .dropdownArrow.open {
-  transform: rotate(180deg); /* Rotate arrow when dropdown is open */
+  transform: rotate(180deg);
 }
 
 .dropdownMenu {
@@ -91,7 +91,7 @@
 }
 
 .dropdownItem {
-  display: block; /* Make each item take full width */
+  display: block;
   width: 100%;
   padding: var(--spacing-2) var(--spacing-3);
   color: var(--color-gray-700);

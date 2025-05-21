@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import MainLayout from "./components/layout/MainLayout";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Projects from "./pages/Projects/Projects";
+import Dashboard from "./pages/Dashboard";
+import Projects from "./pages/Projects";
 import UserManagement from "./pages/UserManagement/UserManagement";
 import "./styles/global.css";
 
