@@ -71,7 +71,7 @@
   background-color: var(--color-white);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-soft);
-  padding: var(--spacing-2) 0;
+  padding: var(--spacing-2);
   position: relative;
   width: 300px;
 }
