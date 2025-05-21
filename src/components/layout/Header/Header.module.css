@@ -1,8 +1,6 @@
 .header {
   height: 70px;
   padding: 0 var(--spacing-6);
-  background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-gray-200);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,24 +13,25 @@
 
 .searchIcon {
   position: absolute;
-  left: var(--spacing-3);
+  left: var(--spacing-6);
   top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-gray-400);
+  transform: translate(-50%, -50%);
+  color: var(--color-gray-500);
 }
 
 .searchInput {
   width: 100%;
-  padding: var(--spacing-2) var(--spacing-2) var(--spacing-2) var(--spacing-8);
+  height: 40px;
+  padding: var(--spacing-3) var(--spacing-3) var(--spacing-3) var(--spacing-10);
   background-color: var(--color-gray-100);
   border: none;
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-full);
   font-size: var(--font-size-sm);
   color: var(--color-gray-800);
 }
 
 .searchInput::placeholder {
-  color: var(--color-gray-400);
+  color: var(--color-gray-500);
 }
 
 .searchInput:focus {
@@ -43,11 +42,19 @@
 .rightSection {
   display: flex;
   align-items: center;
-  gap: var(--spacing-4);
+  gap: var(--spacing-16);
 }
 
 .notifications {
   position: relative;
+  background-color: var(--color-white);
+  padding: var(--spacing-1);
+  border-radius: var(--border-radius-full);
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .notificationBadge {
@@ -56,18 +63,21 @@
   right: -5px;
   width: 18px;
   height: 18px;
-  background-color: var(--color-error);
+  background-color: var(--color-warning);
   color: var(--color-white);
   border-radius: 50%;
   font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: var(--shadow-xl);
+  z-index: 1000;
+  font-weight: var(--font-weight-semibold);
 }
 
 .userInfo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--spacing-3);
 }
 
@@ -80,11 +90,12 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-gray-900);
   font-size: var(--font-size-sm);
+  /* margin-bottom: var(--spacing-1); */
 }
 
 .userRole {
   font-size: var(--font-size-xs);
-  color: var(--color-gray-500);
+  color: var(--color-gray-600);
 }
 
 .avatar {
@@ -103,6 +114,14 @@
 
 .settingsIcon {
   position: relative;
+  background-color: #1c4d61;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-1);
+  border-radius: var(--border-radius-full);
+  height: 40px;
+  width: 40px;
 }
 
 .settingsBadge {
@@ -111,20 +130,21 @@
   right: -5px;
   width: 18px;
   height: 18px;
-  background-color: var(--color-primary-600);
+  background-color: var(--color-error);
   color: var(--color-white);
   border-radius: 50%;
   font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: var(--font-weight-semibold);
 }
 
 @media (max-width: 768px) {
   .searchContainer {
     width: 200px;
   }
-  
+
   .userDetails {
     display: none;
   }
