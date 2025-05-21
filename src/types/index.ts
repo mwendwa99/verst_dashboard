@@ -1,7 +1,7 @@
 export interface User {
   id: string;
   name: string;
-  role: 'admin' | 'proponent';
+  role: "admin" | "proponent";
   avatar?: string;
 }
 
@@ -14,7 +14,7 @@ export interface MetricCard {
     timeframe: string;
   };
   icon: string;
-  color: 'pink' | 'orange' | 'green' | 'purple';
+  color: "pink" | "orange" | "green" | "purple" | "lime";
 }
 
 export interface ProjectCategory {
@@ -27,7 +27,7 @@ export interface Project {
   id: string;
   title: string;
   location: string;
-  status: 'approved' | 'pending' | 'rejected';
+  status: "approved" | "pending" | "rejected";
   description: string;
   image: string;
   category: string;
@@ -42,7 +42,7 @@ export interface ChartData {
 
 export interface UserInsight {
   id: string;
-  role: 'admin' | 'proponent';
+  role: "admin" | "proponent";
   percentage: number;
 }
 

@@ -36,7 +36,7 @@ export const mockMetricCards: MetricCard[] = [
       value: 1.3,
       timeframe: "from past week",
     },
-    icon: "check-circle",
+    icon: "users",
     color: "orange",
   },
   {
@@ -47,7 +47,7 @@ export const mockMetricCards: MetricCard[] = [
       value: 4.3,
       timeframe: "from yesterday",
     },
-    icon: "user-check",
+    icon: "tag",
     color: "green",
   },
   {
@@ -58,7 +58,7 @@ export const mockMetricCards: MetricCard[] = [
       value: 1.8,
       timeframe: "from yesterday",
     },
-    icon: "users",
+    icon: "user-round-plus",
     color: "purple",
   },
   {
@@ -69,8 +69,8 @@ export const mockMetricCards: MetricCard[] = [
       value: 1.8,
       timeframe: "from yesterday",
     },
-    icon: "alert-triangle",
-    color: "green",
+    icon: "user-round-plus",
+    color: "lime",
   },
 ];
 

@@ -1,12 +1,15 @@
 .card {
   background-color: var(--color-white);
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-lg);
   padding: var(--spacing-4);
   display: flex;
-  align-items: center;
-  gap: var(--spacing-4);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  flex-direction: column;
+  /* align-items: flex-start; */
+  /* justify-content: space-between; */
+  gap: var(--spacing-1);
+  transition: transform var(--transition-fast);
+  /* box-shadow var(--transition-fast); */
+  /* max-width: 80%; */
 }
 
 .card:hover {
@@ -17,16 +20,19 @@
 .iconContainer {
   width: 48px;
   height: 48px;
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-
 .pink {
   background-color: var(--color-pink-light);
   color: var(--color-pink);
+}
+.card .pink {
+  background-color: var(--color-pink);
+  color: var(--color-white);
 }
 
 .orange {
@@ -34,24 +40,51 @@
   color: var(--color-orange);
 }
 
+.card .orange {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+}
+
 .green {
   background-color: var(--color-green-light);
   color: var(--color-green);
+}
+.card .green {
+  background-color: var(--color-green);
+  color: var(--color-white);
 }
 
 .purple {
   background-color: var(--color-purple-light);
   color: var(--color-purple);
 }
+.card .purple {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+}
+
+.lime {
+  background-color: var(--color-lime-light);
+  color: var(--color-lime);
+}
+.card .lime {
+  background-color: var(--color-lime);
+  color: var(--color-white);
+}
 
 .content {
   flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .title {
   font-size: var(--font-size-sm);
-  color: var(--color-gray-500);
+  color: var(--color-gray-700);
   margin-bottom: var(--spacing-1);
+  white-space: normal;
+  max-width: 80%;
 }
 
 .value {
@@ -65,11 +98,13 @@
   font-size: var(--font-size-xs);
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: var(--spacing-1);
+  color: var(--color-gray-600);
 }
 
 .positive {
-  color: var(--color-success);
+  color: var(--color-primary-500);
 }
 
 .negative {
@@ -82,7 +117,7 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .iconContainer {
     margin-bottom: var(--spacing-2);
   }

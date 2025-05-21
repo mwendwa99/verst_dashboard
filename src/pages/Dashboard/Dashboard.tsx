@@ -1,46 +1,104 @@
-import React from 'react';
-import { CalendarDays } from 'lucide-react';
-import { useAppContext } from '../../context/AppContext';
-import MetricCard from '../../components/dashboard/MetricCard/MetricCard';
-import CategoryTabs from '../../components/dashboard/CategoryTabs/CategoryTabs';
-import ProjectsBarChart from '../../components/dashboard/ProjectsBarChart/ProjectsBarChart';
-import UserInsightsChart from '../../components/dashboard/UserInsightsChart/UserInsightsChart';
-import KenyaMap from '../../components/dashboard/KenyaMap/KenyaMap';
-import styles from './Dashboard.module.css';
+import React, { useState, useEffect, useRef } from "react";
+import { ChevronDown } from "lucide-react";
+import { useAppContext } from "../../context/AppContext";
+import MetricCard from "../../components/dashboard/MetricCard";
+import CategoryTabs from "../../components/dashboard/CategoryTabs/CategoryTabs";
+import ProjectsBarChart from "../../components/dashboard/ProjectsBarChart/ProjectsBarChart";
+import UserInsightsChart from "../../components/dashboard/UserInsightsChart/UserInsightsChart";
+import KenyaMap from "../../components/dashboard/KenyaMap/KenyaMap";
+import styles from "./Dashboard.module.css";
 
 const Dashboard: React.FC = () => {
-  const { 
-    metricCards, 
-    projectCategories, 
-    chartData, 
-    userInsights, 
+  const {
+    metricCards,
+    projectCategories,
+    chartData,
+    userInsights,
     regions,
-    totalUsers
+    totalUsers,
   } = useAppContext();
-  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedPeriod, setSelectedPeriod] = useState("THIS WEEK");
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        (dropdownRef.current as HTMLElement).contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handlePeriodSelect = (period: string) => {
+    setSelectedPeriod(period);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <div className={styles.dashboard}>
-      <div>
+      <div className={styles.card}>
         <div className={styles.headerWithFilter}>
-          <h1 className={styles.pageTitle}>Statistics</h1>
-          <button className={styles.filterButton}>
-            <CalendarDays size={16} />
-            THIS WEEK
-          </button>
+          <div>
+            <h1 className={styles.pageTitle}>Statistics</h1>
+            <div className={styles.pageSubtitle}>Dashboard Summary</div>
+          </div>
+          <div className={styles.dropdownContainer} ref={dropdownRef}>
+            <button
+              className={styles.filterButton}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              {selectedPeriod}
+              <ChevronDown
+                size={18}
+                className={`${styles.dropdownArrow} ${
+                  isDropdownOpen ? styles.open : ""
+                }`}
+              />
+            </button>
+            {isDropdownOpen && (
+              <div className={styles.dropdownMenu}>
+                <button
+                  className={styles.dropdownItem}
+                  onClick={() => handlePeriodSelect("TODAY")}
+                >
+                  TODAY
+                </button>
+                <button
+                  className={styles.dropdownItem}
+                  onClick={() => handlePeriodSelect("THIS WEEK")}
+                >
+                  THIS WEEK
+                </button>
+                <button
+                  className={styles.dropdownItem}
+                  onClick={() => handlePeriodSelect("THIS MONTH")}
+                >
+                  THIS MONTH
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-        <div className={styles.pageSubtitle}>Dashboard Summary</div>
+
+        <div className={styles.metricsGrid}>
+          {metricCards.map((card) => (
+            <MetricCard key={card.id} data={card} />
+          ))}
+        </div>
       </div>
-      
-      <div className={styles.metricsGrid}>
-        {metricCards.map((card) => (
-          <MetricCard key={card.id} data={card} />
-        ))}
-      </div>
-      
+
       <CategoryTabs categories={projectCategories} />
-      
+
       <ProjectsBarChart data={chartData} />
-      
+
       <div className={styles.chartsGrid}>
         <UserInsightsChart data={userInsights} totalUsers={totalUsers} />
         <KenyaMap regions={regions} />

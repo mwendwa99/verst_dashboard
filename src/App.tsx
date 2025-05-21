@@ -1,7 +1,6 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
-import MainLayout from "./components/layout/MainLayout/MainLayout";
+import MainLayout from "./components/layout/MainLayout";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Projects from "./pages/Projects/Projects";
 import UserManagement from "./pages/UserManagement/UserManagement";
