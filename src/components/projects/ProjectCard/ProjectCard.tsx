@@ -1,7 +1,7 @@
-import React from 'react';
-import { MapPin, ArrowRight } from 'lucide-react';
-import { Project } from '../../../types';
-import styles from './ProjectCard.module.css';
+import React from "react";
+import { MapPin, ArrowRight } from "lucide-react";
+import type { Project } from "../../../types";
+import styles from "./ProjectCard.module.css";
 
 interface ProjectCardProps {
   project: Project;
@@ -9,12 +9,14 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const { title, location, description, image, status } = project;
-  
+
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
         <img src={image} alt={title} className={styles.image} />
-        <div className={styles.status}>{status.charAt(0).toUpperCase() + status.slice(1)}</div>
+        <div className={styles.status}>
+          {status.charAt(0).toUpperCase() + status.slice(1)}
+        </div>
       </div>
       <div className={styles.content}>
         <div className={styles.location}>
