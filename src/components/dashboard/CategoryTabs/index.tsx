@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Zap, Truck, Trash2, Wheat, Factory, Palmtree } from "lucide-react";
+import {
+  Leaf,
+  Zap,
+  Truck,
+  Trash2,
+  Wheat,
+  Factory,
+  Palmtree,
+} from "lucide-react";
 import type { ProjectCategory } from "../../../types";
 import styles from "./CategoryTabs.module.css";
 
@@ -13,7 +21,7 @@ const CategoryTabs: React.FC<CategoryTabsProps> = ({ categories }) => {
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case "zap":
-        return <Zap size={20} />;
+        return <Leaf size={20} />;
       case "truck":
         return <Truck size={20} />;
       case "trash-2":

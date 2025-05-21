@@ -92,7 +92,7 @@ export const mockProjectCategories: ProjectCategory[] = [
   },
   {
     id: "4",
-    name: "Forestry & Land Use",
+    name: "Forestry & Land\n Use",
     icon: "tree",
   },
   {
@@ -102,7 +102,7 @@ export const mockProjectCategories: ProjectCategory[] = [
   },
   {
     id: "6",
-    name: "Industrial Processes & Product Use",
+    name: "Industrial Processes \n& Product Use",
     icon: "factory",
   },
 ];

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { useAppContext } from "../../context/AppContext";
 import MetricCard from "../../components/dashboard/MetricCard";
-import CategoryTabs from "../../components/dashboard/CategoryTabs/CategoryTabs";
+import CategoryTabs from "../../components/dashboard/CategoryTabs";
 import ProjectsBarChart from "../../components/dashboard/ProjectsBarChart/ProjectsBarChart";
 import UserInsightsChart from "../../components/dashboard/UserInsightsChart/UserInsightsChart";
 import KenyaMap from "../../components/dashboard/KenyaMap/KenyaMap";
