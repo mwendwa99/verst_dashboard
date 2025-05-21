@@ -1,0 +1,84 @@
+.container {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.header {
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+}
+
+.userCount {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin-bottom: var(--spacing-4);
+}
+
+.chartWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  position: relative;
+}
+
+.chartLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+}
+
+.percentValue {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+  display: block;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-6);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.admin {
+  background-color: var(--color-chart-purple);
+}
+
+.proponent {
+  background-color: var(--color-green);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-4);
+  }
+  
+  .chartWrapper {
+    height: 200px;
+  }
+}

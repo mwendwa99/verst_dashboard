@@ -1,0 +1,67 @@
+.container {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.header {
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+}
+
+.mapWrapper {
+  height: 300px;
+  position: relative;
+}
+
+.county {
+  fill: var(--color-gray-100);
+  stroke: var(--color-white);
+  stroke-width: 0.5px;
+  cursor: pointer;
+  transition: fill var(--transition-fast);
+}
+
+.county:hover {
+  fill: var(--color-gray-200);
+}
+
+.active {
+  fill: var(--color-chart-green);
+}
+
+.active:hover {
+  fill: var(--color-chart-green);
+  opacity: 0.9;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-2);
+  box-shadow: var(--shadow-md);
+  font-size: var(--font-size-xs);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  z-index: 10;
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-4);
+  }
+  
+  .mapWrapper {
+    height: 250px;
+  }
+}

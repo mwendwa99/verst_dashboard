@@ -1,0 +1,184 @@
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--color-white);
+  border-right: 1px solid var(--color-gray-200);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-fixed);
+  transition: width var(--transition-normal);
+  padding: var(--spacing-4) 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.logo {
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.navItem {
+  position: relative;
+  width: 100%;
+}
+
+.navItem.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--color-primary-600);
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  gap: var(--spacing-3);
+  color: var(--color-gray-700);
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.navLink:hover {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-900);
+}
+
+.navLink.active {
+  color: var(--color-primary-600);
+  font-weight: var(--font-weight-medium);
+  background-color: var(--color-primary-50);
+}
+
+.navIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.navText {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity var(--transition-normal);
+}
+
+.collapsed .navText {
+  opacity: 0;
+  width: 0;
+}
+
+.collapsed .navLink {
+  justify-content: center;
+  padding: var(--spacing-3) 0;
+}
+
+.subMenu {
+  padding-left: var(--spacing-8);
+  display: none;
+}
+
+.subMenu.open {
+  display: block;
+}
+
+.navItemWithSubmenu .navLink::after {
+  content: '';
+  position: absolute;
+  right: var(--spacing-4);
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--color-gray-400);
+  border-right: 2px solid var(--color-gray-400);
+  transform: rotate(135deg);
+  transition: transform var(--transition-fast);
+}
+
+.navItemWithSubmenu.open .navLink::after {
+  transform: rotate(-45deg);
+}
+
+.collapsed .navItemWithSubmenu .navLink::after {
+  display: none;
+}
+
+.footer {
+  padding: var(--spacing-4);
+  border-top: 1px solid var(--color-gray-200);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+}
+
+.collapsed .footer span {
+  display: none;
+}
+
+.toggleButton {
+  position: absolute;
+  top: var(--spacing-4);
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.toggleButton:hover {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-600);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(0);
+    transition: transform var(--transition-normal), width var(--transition-normal);
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+
+  .toggleButton {
+    right: -40px;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+  }
+}

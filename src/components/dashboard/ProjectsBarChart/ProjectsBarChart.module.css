@@ -1,0 +1,85 @@
+.chartContainer {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-6);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+}
+
+.period {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+}
+
+.chartWrapper {
+  height: 300px;
+  margin-top: var(--spacing-4);
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.approved {
+  background-color: var(--color-chart-green);
+}
+
+.pending {
+  background-color: var(--color-chart-purple);
+}
+
+.rejected {
+  background-color: var(--color-chart-orange);
+}
+
+.projectCount {
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+  font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 768px) {
+  .chartContainer {
+    padding: var(--spacing-4);
+  }
+  
+  .chartWrapper {
+    height: 250px;
+  }
+  
+  .legend {
+    flex-wrap: wrap;
+  }
+}
