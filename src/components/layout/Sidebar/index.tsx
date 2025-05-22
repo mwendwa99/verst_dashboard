@@ -14,6 +14,8 @@ import {
   FileText,
   CheckCircle,
   ChevronDown,
+  Check,
+  SquareCheck,
 } from "lucide-react";
 import { useAppContext } from "../../../context/AppContext";
 import styles from "./Sidebar.module.css";
@@ -54,12 +56,12 @@ const menuItems = [
       {
         path: "/article-6/seek-authorization",
         label: "Seek Authorization",
-        icon: <FileText size={18} />,
+        icon: <Check size={18} />,
       },
       {
         path: "/article-6/authorized",
         label: "Authorized Projects",
-        icon: <CheckCircle size={18} />,
+        icon: <SquareCheck size={18} />,
       },
     ],
   },

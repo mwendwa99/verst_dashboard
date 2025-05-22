@@ -53,7 +53,7 @@ const UserInsightsChart: React.FC<UserInsightsChartProps> = ({
               dataKey="percentage"
               animationDuration={800}
             >
-              {remainingCellsData.map((entry, index) => (
+              {remainingCellsData.map((_, index) => (
                 <Cell
                   key={`cell-${index + 1}`}
                   fill={COLORS[(index + 1) % COLORS.length]}
