@@ -1,22 +1,43 @@
 import React from "react";
-import { CheckSquare } from "lucide-react";
+import { useAppContext } from "../../context/AppContext";
+import ProjectStats from "../../components/projects/ProjectStats/ProjectStats";
+import ProjectFilters from "../../components/projects/ProjectFilters/ProjectFilters";
+import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
+import NotificationsList from "../../components/notifications/NotificationsList/NotificationsList";
 import styles from "./Article.module.css";
+import { mockProjectStats } from "../../data/mockData";
 
-const Authorized: React.FC = () => {
+const Projects: React.FC = () => {
+  const { projects, notifications } = useAppContext();
+  const { totalProjects, creditsIssued, expectedCredits, totalProjected } =
+    mockProjectStats;
+
   return (
-    <div className={styles.container}>
-      <h1 className={styles.pageTitle}>Authorized</h1>
+    <div className={styles.projects}>
+      <h1 className={styles.pageTitle}>My Projects</h1>
 
-      <div className={styles.placeholder}>
-        <CheckSquare
-          size={48}
-          color="#4b5563"
-          style={{ margin: "0 auto 1rem" }}
-        />
-        <h2 className={styles.placeholderTitle}>Authorized Page</h2>
+      <ProjectStats
+        totalProjects={totalProjects}
+        creditsIssued={creditsIssued}
+        expectedCredits={expectedCredits}
+        totalProjected={totalProjected}
+      />
+
+      <div className={styles.container}>
+        <ProjectFilters title="Authorised Projects" />
+
+        <div className={styles.projectsGrid}>
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <NotificationsList notifications={notifications} />
       </div>
     </div>
   );
 };
 
-export default Authorized;
+export default Projects;

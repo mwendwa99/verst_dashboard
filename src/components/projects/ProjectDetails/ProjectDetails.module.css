@@ -1,0 +1,36 @@
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on small screens */
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .detailsGrid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(200px, 1fr)
+    ); /* Two columns on larger screens */
+  }
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detailText {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailLabel {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.detailValue {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}

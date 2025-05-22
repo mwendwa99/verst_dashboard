@@ -1,0 +1,14 @@
+.mapContainer {
+  width: 100%;
+  height: 400px; /* Fixed height for the map container */
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.mapSVG {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

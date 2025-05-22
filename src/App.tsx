@@ -11,6 +11,7 @@ import Compliance from "./pages/Compliance";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import Committee from "./pages/Committee";
+import ProjectList from "./pages/Projects/ProjectList";
 
 import "./styles/global.css";
 
@@ -22,7 +23,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/committee" element={<Committee />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects" element={<Projects />}>
+              <Route path="list" element={<ProjectList />} />
+            </Route>
             <Route path="/users" element={<UserManagement />} />
             <Route path="/article-6" element={<Article6 />}>
               <Route

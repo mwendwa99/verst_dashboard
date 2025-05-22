@@ -1,0 +1,112 @@
+.overviewContainer {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projectTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #5831e8; /* Primary purple */
+}
+
+.metricLabel {
+  font-size: 0.85rem;
+  color: #666;
+  white-space: nowrap; /* Prevent label wrapping */
+}
+
+.progressBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%; /* Adjust width as needed */
+  margin: 20px auto 0;
+  position: relative;
+}
+
+.progressCircle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* Ensure circles are above lines */
+  transition: background-color 0.3s ease;
+}
+
+.progressCircle.completed {
+  background-color: #19bf98; /* Green for completed */
+}
+
+.progressCircle.active {
+  background-color: #5831e8; /* Purple for active */
+  box-shadow: 0 0 0 4px rgba(88, 49, 232, 0.3); /* Glow for active */
+}
+
+.progressCircle.pending {
+  border: 2px solid #ccc;
+  background-color: #f0f2f5;
+}
+
+.progressLine {
+  flex-grow: 1;
+  height: 4px;
+  background-color: #e0e0e0;
+  margin: 0 -5px; /* Overlap with circles slightly */
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.progressLine.completed {
+  background-color: #19bf98; /* Green for completed line segment */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+  .metricValue {
+    font-size: 1.2rem;
+  }
+  .metricLabel {
+    font-size: 0.75rem;
+  }
+  .progressBarContainer {
+    width: 95%; /* Adjust width for smaller screens */
+  }
+  .progressCircle {
+    width: 25px;
+    height: 25px;
+  }
+}

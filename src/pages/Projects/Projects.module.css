@@ -31,8 +31,44 @@
   .pageTitle {
     margin-bottom: var(--spacing-4);
   }
-  
+
   .projectsGrid {
     gap: var(--spacing-4);
+  }
+}
+.mainContent {
+  flex-grow: 1; /* Allows content to take available space */
+  padding: 20px;
+  background-color: #f0f2f5; /* Light grey background */
+  overflow-y: auto; /* Enable scrolling for content */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between sections */
+  margin-left: 220px; /* Adjust for fixed sidebar width */
+  padding-top: 80px; /* Adjust for fixed header height */
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 60px; /* Adjust for collapsed sidebar width */
+  }
+}
+
+.summaryText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on small screens */
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .twoColumnGrid {
+    grid-template-columns: 2fr 1fr; /* Two columns on larger screens */
   }
 }
