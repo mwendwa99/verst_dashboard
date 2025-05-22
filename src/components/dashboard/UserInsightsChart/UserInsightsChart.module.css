@@ -29,7 +29,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 320px;
+  height: 400px;
+  width: 100%;
   position: relative;
 }
 .chartWrapper :global(.recharts-pie-sector):first-child {

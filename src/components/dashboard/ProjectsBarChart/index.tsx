@@ -14,7 +14,6 @@ interface ProjectsBarChartProps {
   data: ChartData[];
 }
 
-// Custom Tooltip component
 const CustomTooltip = ({
   active,
   payload,
@@ -67,7 +66,7 @@ const ProjectsBarChart: React.FC<ProjectsBarChartProps> = ({ data }) => {
             <CartesianGrid
               strokeDasharray="3 3"
               vertical={false}
-              stroke="var(--color-gray-100)" // X-axis line color
+              stroke="var(--color-gray-100)"
             />
             <XAxis
               dataKey="name"
@@ -77,10 +76,10 @@ const ProjectsBarChart: React.FC<ProjectsBarChartProps> = ({ data }) => {
                 fontWeight: 500,
                 fill: "var(--color-gray-400)",
               }}
-              axisLine={{ stroke: "var(--color-gray-300)" }} // X-axis line color
+              axisLine={{ stroke: "var(--color-gray-300)" }}
             />
             <Tooltip
-              cursor={{ fill: "#ddead5" }} // Hover effect background color
+              cursor={{ fill: "#ddead5" }}
               content={<CustomTooltip active={false} payload={[]} label="" />}
             />
             <Bar

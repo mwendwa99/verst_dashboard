@@ -18,7 +18,6 @@ import {
 import { useAppContext } from "../../../context/AppContext";
 import styles from "./Sidebar.module.css";
 
-// Define menu structure
 const menuItems = [
   {
     path: "/",
@@ -86,7 +85,6 @@ const menuItems = [
   },
 ];
 
-// Memoized submenu component for better performance
 const SubMenu = memo(({ isOpen, items }) => (
   <ul
     className={`${styles.subMenu}
@@ -116,10 +114,8 @@ ${isOpen ? styles.open : ""}`}
   </ul>
 ));
 
-// Memoized menu item component for better performance
 const MenuItem = memo(({ item, location, hasSubmenu = false, children }) => {
   const [isOpen, setIsOpen] = useState(
-    // Check if any submenu item path is in the current location
     hasSubmenu &&
       item.submenuItems?.some((subItem) =>
         location.pathname.includes(subItem.path.split("/").filter(Boolean)[0])

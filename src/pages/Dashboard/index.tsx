@@ -13,14 +13,13 @@ const Dashboard: React.FC = () => {
     projectCategories,
     chartData,
     userInsights,
-    regions,
+
     totalUsers,
   } = useAppContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState("THIS WEEK");
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -98,7 +97,7 @@ const Dashboard: React.FC = () => {
 
       <div className={styles.chartsGrid}>
         <UserInsightsChart data={userInsights} totalUsers={totalUsers} />
-        <KenyaMap regions={regions} />
+        <KenyaMap />
       </div>
     </div>
   );

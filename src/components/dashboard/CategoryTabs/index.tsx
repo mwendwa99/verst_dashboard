@@ -47,7 +47,6 @@ const CategoryTabs: React.FC<CategoryTabsProps> = ({
   const [selectedPeriod, setSelectedPeriod] = useState("THIS WEEK");
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (

@@ -20,7 +20,6 @@ const UserInsightsChart: React.FC<UserInsightsChartProps> = ({
 
   const COLORS = ["#5831e8", "#19bf98"];
 
-  // Calculate label positions
   const getLabelPosition = (percentage: number, index: number) => {
     const startAngle =
       index === 0 ? -280 : -280 + (processedData[0]?.percentage / 100) * 360;
@@ -33,6 +32,9 @@ const UserInsightsChart: React.FC<UserInsightsChartProps> = ({
     return { x: `${x}%`, y: `${y}%` };
   };
 
+  const firstCellData = processedData.slice(0, 1);
+  const remainingCellsData = processedData.slice(1);
+
   return (
     <div className={styles.container}>
       <h3 className={styles.header}>User Insights</h3>
@@ -42,46 +44,55 @@ const UserInsightsChart: React.FC<UserInsightsChartProps> = ({
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
-              data={processedData}
+              data={remainingCellsData}
               cx="50%"
               cy="50%"
-              innerRadius={80}
-              outerRadius={140}
-              startAngle={-280}
+              innerRadius={60}
+              outerRadius={100}
+              startAngle={-280 + (firstCellData[0]?.percentage / 100) * 360}
               dataKey="percentage"
               animationDuration={800}
             >
-              {processedData.map((entry, index) => (
+              {remainingCellsData.map((entry, index) => (
                 <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                  stroke={index === 0 ? "none" : "none"}
+                  key={`cell-${index + 1}`}
+                  fill={COLORS[(index + 1) % COLORS.length]}
+                  stroke="none"
                   strokeWidth={0}
                   style={{
-                    filter:
-                      index === 0
-                        ? "drop-shadow(0 6px 12px rgba(88, 49, 232, 0.4)) scale(1.05)"
-                        : "none",
                     transformOrigin: "center",
                     transition: "all 0.3s ease",
                   }}
                 />
-                // <Cell
-                //   key={`cell-${index}`}
-                //   fill={COLORS[index % COLORS.length]}
-                //   style={{
-                //     filter: `drop-shadow(0px 0px 5px ${
-                //       COLORS[index % COLORS.length]
-                //     }`,
-                //   }}
-                //   stroke="0"
-                // />
               ))}
+            </Pie>
+
+            <Pie
+              data={firstCellData}
+              cx="50%"
+              cy="50%"
+              innerRadius={50}
+              outerRadius={110}
+              startAngle={-280}
+              endAngle={-280 + (firstCellData[0]?.percentage / 100) * 360}
+              dataKey="percentage"
+              animationDuration={800}
+            >
+              <Cell
+                fill={COLORS[0]}
+                stroke="none"
+                strokeWidth={0}
+                style={{
+                  filter:
+                    "drop-shadow(0 6px 12px rgba(88, 49, 232, 0.4)) scale(1.05)",
+                  transformOrigin: "center",
+                  transition: "all 0.3s ease",
+                }}
+              />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
 
-        {/* Custom positioned labels */}
         {processedData.map((entry, index) => {
           const position = getLabelPosition(entry.percentage, index);
           return (
