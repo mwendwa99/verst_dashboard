@@ -1,13 +1,19 @@
 .container {
   background-color: var(--color-white);
-  border-radius: var(--border-radius-md);
   padding: var(--spacing-6);
   box-shadow: var(--shadow-sm);
   height: 100%;
+  border-radius: var(--border-radius-xl);
+}
+
+.container:hover {
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-1px);
+  transition: all var(--transition-fast);
 }
 
 .header {
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-2);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-gray-900);
@@ -23,25 +29,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 250px;
+  height: 320px;
   position: relative;
 }
-
-.chartLabel {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: var(--font-size-sm);
-  color: var(--color-gray-700);
+.chartWrapper :global(.recharts-pie-sector):first-child {
+  transform: scale(1.1);
+  transform-origin: center;
+  transition: all var(--transition-fast);
 }
 
-.percentValue {
-  font-size: var(--font-size-2xl);
+.customLabel {
+  position: absolute;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   color: var(--color-gray-900);
-  display: block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
 }
 
 .legend {
@@ -66,19 +74,24 @@
 }
 
 .admin {
-  background-color: var(--color-chart-purple);
+  background-color: #5831e8;
 }
 
 .proponent {
-  background-color: var(--color-green);
+  background-color: #19bf98;
 }
 
 @media (max-width: 768px) {
   .container {
     padding: var(--spacing-4);
   }
-  
+
   .chartWrapper {
-    height: 200px;
+    height: 280px;
+  }
+
+  .customLabel {
+    font-size: var(--font-size-xs);
+    padding: 2px var(--spacing-1);
   }
 }

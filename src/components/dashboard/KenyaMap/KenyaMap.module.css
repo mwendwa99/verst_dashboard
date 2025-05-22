@@ -1,9 +1,15 @@
 .container {
   background-color: var(--color-white);
-  border-radius: var(--border-radius-md);
   padding: var(--spacing-6);
   box-shadow: var(--shadow-sm);
   height: 100%;
+  border-radius: var(--border-radius-xl);
+}
+
+.container:hover {
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-1px);
+  transition: all var(--transition-fast);
 }
 
 .header {
@@ -60,7 +66,7 @@
   .container {
     padding: var(--spacing-4);
   }
-  
+
   .mapWrapper {
     height: 250px;
   }
