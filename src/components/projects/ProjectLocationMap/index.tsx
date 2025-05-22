@@ -2,12 +2,9 @@ import React from "react";
 import styles from "./ProjectLocationMap.module.css";
 
 const ProjectLocationMap: React.FC = () => {
-  // This is a simplified SVG representation of the map shown in the image.
-  // For a real interactive map, you would integrate a mapping library (e.g., Leaflet, Mapbox, D3-geo with actual GeoJSON).
   return (
     <div className={styles.mapContainer}>
       <svg viewBox="0 0 600 400" className={styles.mapSVG}>
-        {/* Background map shape - highly simplified */}
         <rect x="0" y="0" width="600" height="400" fill="#f0f0f0" />
         <path
           d="M50 50 L550 50 L550 350 L50 350 Z"
@@ -16,7 +13,6 @@ const ProjectLocationMap: React.FC = () => {
           strokeWidth="2"
         />
 
-        {/* Placeholder for "Nairobi" area - a larger central blob */}
         <circle
           cx="300"
           cy="200"
@@ -36,7 +32,6 @@ const ProjectLocationMap: React.FC = () => {
           Nairobi
         </text>
 
-        {/* Simplified roads/connections */}
         <line
           x1="300"
           y1="200"
@@ -78,7 +73,6 @@ const ProjectLocationMap: React.FC = () => {
           strokeWidth="2"
         />
 
-        {/* Place names as seen in the image */}
         <text x="150" y="90" textAnchor="middle" fontSize="14" fill="#333">
           Nyathuna
         </text>

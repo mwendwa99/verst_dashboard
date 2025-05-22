@@ -12,6 +12,7 @@ import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import Committee from "./pages/Committee";
 import ProjectList from "./pages/Projects/ProjectList";
+import AddProject from "./pages/Projects/AddProject";
 
 import "./styles/global.css";
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/committee" element={<Committee />} />
             <Route path="/projects" element={<Projects />}>
+              <Route path="add" element={<AddProject />} />
               <Route path="list" element={<ProjectList />} />
             </Route>
             <Route path="/users" element={<UserManagement />} />

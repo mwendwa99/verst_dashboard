@@ -1,5 +1,5 @@
 import React from "react";
-import { Users, Heart, GraduationCap } from "lucide-react"; // Lucide icons
+import { Users, Heart, GraduationCap } from "lucide-react";
 import styles from "./SDGGoalsSection.module.css";
 
 const SDGGoalsSection: React.FC = () => {
@@ -9,24 +9,24 @@ const SDGGoalsSection: React.FC = () => {
       title: "No Poverty",
       description:
         "SDG Goal 1 ensures that no one is left behind and aims to eradicate extreme poverty for all people everywhere.",
-      icon: Users, // Using Users for No Poverty as it represents people/community
-      color: "#e5243b", // Red
+      icon: Users,
+      color: "#e5243b",
     },
     {
       id: 2,
       title: "Good Health and Well-being",
       description:
         "SDG Goal 3 aims to ensure healthy lives and promote well-being for all at all ages.",
-      icon: Heart, // Using Heart for Good Health
-      color: "#4c9f38", // Green
+      icon: Heart,
+      color: "#4c9f38",
     },
     {
       id: 3,
       title: "Quality Education",
       description:
         "SDG Goal 4 ensures inclusive and equitable quality education and promote lifelong learning opportunities for all.",
-      icon: GraduationCap, // Using GraduationCap for Quality Education
-      color: "#c5192d", // Darker Red
+      icon: GraduationCap,
+      color: "#c5192d",
     },
   ];
 
@@ -39,7 +39,7 @@ const SDGGoalsSection: React.FC = () => {
           style={{ backgroundColor: goal.color }}
         >
           <div className={styles.goalHeader}>
-            <goal.icon size={40} color="#fff" /> {/* Render Lucide icon */}
+            <goal.icon size={40} color="#fff" />
             <h3 className={styles.goalTitle}>{goal.title}</h3>
           </div>
           <p className={styles.goalDescription}>{goal.description}</p>

@@ -12,7 +12,6 @@ const ProjectList: React.FC = () => {
     <main className={styles.mainContent}>
       <ProjectOverview />
 
-      {/* Project Summary Section */}
       <SectionCard title="Project Summary">
         <p className={styles.summaryText}>
           The Kilifi Solar Project aims to provide sustainable and affordable
@@ -25,7 +24,6 @@ const ProjectList: React.FC = () => {
         </p>
       </SectionCard>
 
-      {/* Project Details and Project Images Sections */}
       <div className={styles.twoColumnGrid}>
         <SectionCard title="Project Details">
           <ProjectDetailsSection />
@@ -35,12 +33,10 @@ const ProjectList: React.FC = () => {
         </SectionCard>
       </div>
 
-      {/* Project Location Section */}
       <SectionCard title="Project Location" fullWidth>
         <ProjectLocationMap />
       </SectionCard>
 
-      {/* SDG Goals Section */}
       <SectionCard title="500 Goals" fullWidth>
         <SDGGoalsSection />
       </SectionCard>

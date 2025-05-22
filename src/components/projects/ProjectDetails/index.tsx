@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, MapPin, User, DollarSign, CheckCircle } from "lucide-react"; // Lucide icons
+import { Calendar, MapPin, User, DollarSign, CheckCircle } from "lucide-react";
 import styles from "./ProjectDetails.module.css";
 
 const ProjectDetails: React.FC = () => {

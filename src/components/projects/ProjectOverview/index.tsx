@@ -1,5 +1,5 @@
 import React from "react";
-import { Users, Zap, Calendar, DollarSign, CheckCircle } from "lucide-react"; // Lucide icons
+import { Users, Zap, Calendar, DollarSign, CheckCircle } from "lucide-react";
 import styles from "./ProjectOverview.module.css";
 
 const ProjectOverview: React.FC = () => {
@@ -25,7 +25,7 @@ const ProjectOverview: React.FC = () => {
       <div className={styles.metricsGrid}>
         {metrics.map((metric, index) => (
           <div key={index} className={styles.metricItem}>
-            <metric.icon size={24} color="#5831e8" /> {/* Render Lucide icon */}
+            <metric.icon size={24} color="#5831e8" />
             <span className={styles.metricValue}>{metric.value}</span>
             <span className={styles.metricLabel}>{metric.label}</span>
           </div>
@@ -39,7 +39,6 @@ const ProjectOverview: React.FC = () => {
               {step.status === "completed" && (
                 <CheckCircle size={16} color="#fff" />
               )}{" "}
-              {/* Check icon for completed */}
             </div>
             {index < progressSteps.length - 1 && (
               <div

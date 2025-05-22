@@ -4,7 +4,7 @@ import styles from "./SectionCard.module.css";
 interface SectionCardProps {
   title: string;
   children: React.ReactNode;
-  fullWidth?: boolean; // Optional prop for full width cards
+  fullWidth?: boolean;
 }
 
 const SectionCard: React.FC<SectionCardProps> = ({
