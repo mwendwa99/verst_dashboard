@@ -1,73 +1,58 @@
+/* KenyaMap.module.css */
 .container {
-  background-color: var(--color-white);
-  padding: var(--spacing-6);
-  box-shadow: var(--shadow-sm);
-  height: 100%;
-  border-radius: var(--border-radius-xl);
-}
-
-.container:hover {
-  box-shadow: var(--shadow-soft);
-  transform: translateY(-1px);
-  transition: all var(--transition-fast);
+  background-color: #f9f9f9; /* Light background for the whole component */
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  /* Adjust height as needed, or remove for auto-sizing based on content */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically if there's space */
+  max-width: 650px; /* Limit max width for better presentation */
+  margin: 20px auto; /* Center the container on the page */
 }
 
 .header {
-  margin-bottom: var(--spacing-4);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-gray-900);
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
 }
 
-.mapWrapper {
-  height: 300px;
-  position: relative;
+.svgWrapper {
+  width: 100%;
+  max-width: 600px; /* Ensure SVG container doesn't exceed its intended width */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden; /* Ensures borders are contained */
 }
 
-.county {
-  fill: var(--color-gray-100);
-  stroke: var(--color-white);
-  stroke-width: 0.5px;
-  cursor: pointer;
-  transition: fill var(--transition-fast);
+.mapSVG {
+  display: block; /* Remove extra space below SVG */
+  width: 100%; /* Make SVG responsive within its wrapper */
+  height: auto; /* Maintain aspect ratio */
 }
 
-.county:hover {
-  fill: var(--color-gray-200);
+.countyPath {
+  /* Default styles for all county paths */
+  transition: fill 0.3s ease; /* Smooth transition for hover effects if added later */
+  cursor: pointer; /* Indicate interactivity */
 }
 
-.active {
-  fill: var(--color-chart-green);
+/* You can add hover effects here if desired */
+.countyPath:hover {
+  opacity: 0.8;
 }
 
-.active:hover {
-  fill: var(--color-chart-green);
-  opacity: 0.9;
-}
-
-.tooltip {
-  position: absolute;
-  background-color: var(--color-white);
-  border-radius: var(--border-radius-sm);
-  padding: var(--spacing-2);
-  box-shadow: var(--shadow-md);
-  font-size: var(--font-size-xs);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-  z-index: 10;
-}
-
-.tooltip.visible {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: var(--spacing-4);
-  }
-
-  .mapWrapper {
-    height: 250px;
-  }
+.loadingText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* Ensure some height even when loading */
+  font-size: 1.2em;
+  color: #555;
+  text-align: center;
 }

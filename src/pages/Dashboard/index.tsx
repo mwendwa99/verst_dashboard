@@ -4,7 +4,7 @@ import { useAppContext } from "../../context/AppContext";
 import MetricCard from "../../components/dashboard/MetricCard";
 import CategoryTabs from "../../components/dashboard/CategoryTabs";
 import UserInsightsChart from "../../components/dashboard/UserInsightsChart";
-import KenyaMap from "../../components/dashboard/KenyaMap";
+import KenyaMap from "../../components/dashboard/KenyaMap/index";
 import styles from "./Dashboard.module.css";
 
 const Dashboard: React.FC = () => {
