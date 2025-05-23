@@ -1,36 +1,52 @@
-.detailsGrid {
-  display: grid;
-  grid-template-columns: 1fr; /* Single column on small screens */
-  gap: 15px;
+.detailsTable {
+  display: flex;
+  gap: var(--spacing-12);
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-@media (min-width: 768px) {
-  .detailsGrid {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(200px, 1fr)
-    ); /* Two columns on larger screens */
+@media (max-width: 900px) {
+  .detailsTable {
+    flex-direction: column;
+    gap: var(--spacing-6);
   }
 }
 
-.detailItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.detailText {
+.detailsCol {
   display: flex;
   flex-direction: column;
+  gap: var(--spacing-8);
+  flex: 1;
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-5);
+}
+
+.iconBox {
+  background: var(--color-lime-light);
+  border-radius: var(--border-radius-lg);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .detailLabel {
-  font-size: 0.85rem;
-  color: #888;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin-right: var(--spacing-1);
+  font-family: var(--font-family);
 }
 
 .detailValue {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #333;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-gray-700);
+  font-family: var(--font-family);
 }

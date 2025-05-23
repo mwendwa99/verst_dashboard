@@ -1,50 +1,73 @@
 import React from "react";
-import { Calendar, MapPin, User, DollarSign, CheckCircle } from "lucide-react";
+import {
+  Pencil,
+  MapPin,
+  TreePine,
+  Briefcase,
+  Calendar,
+  ListChecks,
+} from "lucide-react";
 import styles from "./ProjectDetails.module.css";
 
 const ProjectDetails: React.FC = () => {
   return (
-    <div className={styles.detailsGrid}>
-      <div className={styles.detailItem}>
-        <Calendar size={20} color="#5831e8" />
-        <div className={styles.detailText}>
-          <span className={styles.detailLabel}>Project Start Date:</span>
-          <span className={styles.detailValue}>2023-01-15</span>
+    <div className={styles.detailsTable}>
+      <div className={styles.detailsCol}>
+        <div className={styles.detailRow}>
+          <div className={styles.iconBox}>
+            <Pencil size={28} color="#22823b" />
+          </div>
+          <div>
+            <span className={styles.detailLabel}>Project Name:</span>
+            <span className={styles.detailValue}>Rachel Frye</span>
+          </div>
+        </div>
+        <div className={styles.detailRow}>
+          <div className={styles.iconBox}>
+            <MapPin size={28} color="#22823b" />
+          </div>
+          <div>
+            <span className={styles.detailLabel}>Project Location:</span>
+            <span className={styles.detailValue}>Nairobi</span>
+          </div>
+        </div>
+        <div className={styles.detailRow}>
+          <div className={styles.iconBox}>
+            <TreePine size={28} color="#22823b" />
+          </div>
+          <div>
+            <span className={styles.detailLabel}>Project Type:</span>
+            <span className={styles.detailValue}>Agriculture</span>
+          </div>
         </div>
       </div>
-      <div className={styles.detailItem}>
-        <Calendar size={20} color="#5831e8" />
-        <div className={styles.detailText}>
-          <span className={styles.detailLabel}>Project End Date:</span>
-          <span className={styles.detailValue}>2025-01-15</span>
+      <div className={styles.detailsCol}>
+        <div className={styles.detailRow}>
+          <div className={styles.iconBox}>
+            <Briefcase size={28} color="#22823b" />
+          </div>
+          <div>
+            <span className={styles.detailLabel}>Project Sector:</span>
+            <span className={styles.detailValue}>Livestock Management</span>
+          </div>
         </div>
-      </div>
-      <div className={styles.detailItem}>
-        <MapPin size={20} color="#5831e8" />
-        <div className={styles.detailText}>
-          <span className={styles.detailLabel}>Project Location:</span>
-          <span className={styles.detailValue}>Kilifi County</span>
+        <div className={styles.detailRow}>
+          <div className={styles.iconBox}>
+            <Calendar size={28} color="#22823b" />
+          </div>
+          <div>
+            <span className={styles.detailLabel}>Project Start Date:</span>
+            <span className={styles.detailValue}>5/17/2024</span>
+          </div>
         </div>
-      </div>
-      <div className={styles.detailItem}>
-        <User size={20} color="#5831e8" />
-        <div className={styles.detailText}>
-          <span className={styles.detailLabel}>Project Proponent:</span>
-          <span className={styles.detailValue}>Kilifi Energy Ltd.</span>
-        </div>
-      </div>
-      <div className={styles.detailItem}>
-        <DollarSign size={20} color="#5831e8" />
-        <div className={styles.detailText}>
-          <span className={styles.detailLabel}>Total Budget:</span>
-          <span className={styles.detailValue}>$15,000</span>
-        </div>
-      </div>
-      <div className={styles.detailItem}>
-        <CheckCircle size={20} color="#5831e8" />
-        <div className={styles.detailText}>
-          <span className={styles.detailLabel}>Status:</span>
-          <span className={styles.detailValue}>In Progress</span>
+        <div className={styles.detailRow}>
+          <div className={styles.iconBox}>
+            <ListChecks size={28} color="#22823b" />
+          </div>
+          <div>
+            <span className={styles.detailLabel}>Project Milestone:</span>
+            <span className={styles.detailValue}>Stakeholder Engagement</span>
+          </div>
         </div>
       </div>
     </div>
