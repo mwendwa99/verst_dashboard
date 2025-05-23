@@ -6,11 +6,17 @@ import ProjectImagesSection from "../../components/projects/ProjectImagesSection
 import ProjectLocationMap from "../../components/projects/ProjectLocationMap";
 import SDGGoalsSection from "../../components/projects/SDGGoalsSection";
 import styles from "./Projects.module.css";
+import ProjectTabs from "../../components/projects/ProjectTabs";
 
 const ProjectList: React.FC = () => {
   return (
     <main className={styles.mainContent}>
-      <ProjectOverview />
+      <div style={{ margin: "var(--spacing-6) 0" }}>
+        <ProjectOverview />
+      </div>
+      <div style={{ margin: "var(--spacing-6) 0" }}>
+        <ProjectTabs />
+      </div>
 
       <SectionCard title="Project Summary">
         <p className={styles.summaryText}>
