@@ -2,7 +2,7 @@
 
 Copyright (c) 2025 Brian Mwendwa
 
-**All Rights Reserved**
+## All Rights Reserved
 
 This repository contains proprietary and confidential material submitted as part of a technical assessment/interview process. By accessing this repository, you acknowledge and agree to the following terms:
 

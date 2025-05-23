@@ -1,54 +1,94 @@
-# React + TypeScript + Vite
+# Project Title
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is designed to provide a comprehensive dashboard solution for monitoring and analyzing data related to the Ministry of Environment & Forestry. It demonstrates a structured approach to solving data visualization challenges using React and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Design Approach
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Architecture
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Component-Based Architecture**: Modular React components following separation of concerns
+- **CSS Modules**: Scoped styling with vanilla CSS for better performance and maintainability
+- **Type Safety**: Full TypeScript implementation with comprehensive type definitions
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Styling Strategy
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **CSS Variables**: Centralized design tokens in `src/styles/variables.css`
+- **Modular CSS**: Each component has its own CSS module following BEM-inspired naming
+- **Responsive Design**: Mobile-first approach with CSS Grid and Flexbox
+- **Design System**: Consistent spacing, colors, and typography using CSS custom properties
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Key design principles:
+
+1. Separation of concerns: Each module has a single responsibility.
+2. DRY (Don't Repeat Yourself): Reusable code is emphasized.
+3. Test-driven development (TDD): Unit tests are written to ensure reliability.
+
+---
+
+## Technologies Used
+
+- **Frontend Framework**: React 19
+- **Build Tool**: Vite
+- **Language**: TypeScript
+- **Styling**: Vanilla CSS with CSS Modules
+- **Icons**: Lucide React
+- **Charts**: Recharts
+- **State Management**: React Context API
+- **Routing**: React Router DOM
+
+---
+
+## Assumptions
+
+The following assumptions were made during the development of this project:
+
+1. **Data Source**: Currently uses mock data (`mockData.ts`) - assumes future integration with a backend API
+2. **Image Assets**: Uses placeholder images - assumes real project
+3. **Browser Support**: Targets modern browsers with CSS Grid and Flexbox support
+4. **Screen Sizes**: Optimized for desktop (1024px+) and tablet (768px+) with mobile responsiveness
+
+---
+
+## Instructions to Run the Project Locally
+
+### Prerequisites
+
+Ensure you have the following installed on your system:
+
+- React 19
+- Vite
+- Node 22
+
+### Steps
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/mwendwa99/verst_dashboard
+   cd verst_dashboard
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:5173` to view the application
+
+---
+
+## License
+
+This project is licensed under the terms specified in the [LICENSE.md](LICENSE.md) file.
