@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-6);
+  width: 100%;
 }
 
 .filtersLeft {
@@ -10,53 +11,67 @@
 }
 
 .sectionTitle {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-gray-900);
-  margin-bottom: var(--spacing-2);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #188038;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
 }
 
 .filtersRight {
   display: flex;
-  gap: var(--spacing-2);
+  gap: 2.5rem;
 }
 
 .filterButton {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-2) var(--spacing-4);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-gray-200);
-  border-radius: var(--border-radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-gray-700);
-  transition: all var(--transition-fast);
+  justify-content: center;
+  gap: 0.7rem;
+  min-width: 220px;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(180deg, #ededed 0%, #e6e6e6 100%);
+  border: none;
+  border-radius: 999px;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #333;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s, color 0.18s;
 }
 
-.filterButton:hover {
-  background-color: var(--color-gray-50);
-  border-color: var(--color-gray-300);
+.filterButton:hover,
+.filterButton:focus {
+  background: linear-gradient(180deg, #e6e6e6 0%, #ededed 100%);
+  color: #188038;
 }
 
-.filterButton svg {
-  color: var(--color-gray-500);
+.chevronIcon {
+  color: #333;
+  margin-left: 0.5rem;
+  pointer-events: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .filtersContainer {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--spacing-3);
+    gap: 2rem;
   }
-  
   .filtersRight {
     width: 100%;
+    gap: 1.5rem;
   }
-  
   .filterButton {
-    flex: 1;
-    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    font-size: 1.3rem;
+    padding: 1rem 1.5rem;
+  }
+  .sectionTitle {
+    font-size: 1.5rem;
   }
 }

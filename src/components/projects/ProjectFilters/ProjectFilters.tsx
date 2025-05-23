@@ -1,6 +1,6 @@
-import React from 'react';
-import { Filter, ArrowDownUp } from 'lucide-react';
-import styles from './ProjectFilters.module.css';
+import React from "react";
+import { ChevronDown } from "lucide-react";
+import styles from "./ProjectFilters.module.css";
 
 interface ProjectFiltersProps {
   title: string;
@@ -14,12 +14,12 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({ title }) => {
       </div>
       <div className={styles.filtersRight}>
         <button className={styles.filterButton}>
-          <Filter size={16} />
           Project Status
+          <ChevronDown size={22} className={styles.chevronIcon} />
         </button>
         <button className={styles.filterButton}>
-          <Filter size={16} />
           Project Type
+          <ChevronDown size={22} className={styles.chevronIcon} />
         </button>
       </div>
     </div>

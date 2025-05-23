@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppContext } from "../../context/AppContext";
-import ProjectStats from "../../components/projects/ProjectStats/ProjectStats";
+import ProjectStats from "../../components/projects/ProjectStats";
 import ProjectFilters from "../../components/projects/ProjectFilters/ProjectFilters";
 import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
 import NotificationsList from "../../components/notifications/NotificationsList/NotificationsList";
@@ -13,28 +13,28 @@ const Projects: React.FC = () => {
     mockProjectStats;
 
   return (
-    <div className={styles.projects}>
+    <div className={styles.projectsPage}>
       <h1 className={styles.pageTitle}>My Projects</h1>
-
-      <ProjectStats
-        totalProjects={totalProjects}
-        creditsIssued={creditsIssued}
-        expectedCredits={expectedCredits}
-        totalProjected={totalProjected}
-      />
-
-      <div className={styles.container}>
-        <ProjectFilters title="Authorised Projects" />
-
-        <div className={styles.projectsGrid}>
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+      <div className={styles.section}>
+        <ProjectStats
+          totalProjects={totalProjects}
+          creditsIssued={creditsIssued}
+          expectedCredits={expectedCredits}
+          totalProjected={totalProjected}
+        />
+        <div className={styles.mainGrid}>
+          <div className={styles.leftCol}>
+            <ProjectFilters title="Authorised Projects" />
+            <div className={styles.projectsGrid}>
+              {projects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </div>
+          <aside className={styles.sidebar}>
+            <NotificationsList notifications={notifications} />
+          </aside>
         </div>
-      </div>
-
-      <div>
-        <NotificationsList notifications={notifications} />
       </div>
     </div>
   );
