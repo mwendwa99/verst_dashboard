@@ -3,7 +3,7 @@ import { useAppContext } from "../../context/AppContext";
 import ProjectStats from "../../components/projects/ProjectStats";
 import ProjectFilters from "../../components/projects/ProjectFilters/ProjectFilters";
 import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
-import NotificationsList from "../../components/notifications/NotificationsList/NotificationsList";
+import NotificationsList from "../../components/notifications/NotificationsList";
 import styles from "./Article.module.css";
 import { mockProjectStats } from "../../data/mockData";
 

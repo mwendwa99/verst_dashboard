@@ -25,7 +25,7 @@
 
 .mainGrid {
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
+  grid-template-columns: 3fr 1fr;
   gap: var(--spacing-8);
   align-items: flex-start;
   width: 100%;

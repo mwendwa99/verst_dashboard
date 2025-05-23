@@ -6,71 +6,69 @@
 }
 
 .statCard {
-  background-color: var(--color-white);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-4);
-  box-shadow: var(--shadow-sm);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  align-items: flex-start;
+  padding: var(--spacing-4) var(--spacing-5);
+  border-radius: var(--border-radius-xl);
+  gap: var(--spacing-3);
 }
 
-.statCard:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+.purpleCard {
+  background-color: var(--color-pink-light);
 }
 
-.statIcon {
+.greenCard {
+  background-color: var(--color-green-light);
+}
+
+.orangeCard {
+  background-color: var(--color-orange-light);
+}
+
+.iconContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--border-radius-lg);
-  margin-bottom: var(--spacing-2);
+  flex-shrink: 0;
 }
 
-.statIcon.purple {
-  background-color: var(--color-purple-light);
-  color: var(--color-purple);
+.icon {
+  color: var(--color-primary-600);
 }
 
-.statIcon.green {
-  background-color: var(--color-green-light);
-  color: var(--color-green);
-}
-
-.statIcon.orange {
-  background-color: var(--color-orange-light);
-  color: var(--color-orange);
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
 }
 
 .statValue {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-gray-900);
-  margin-bottom: var(--spacing-1);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-700);
+  line-height: 1.2;
 }
 
 .statLabel {
-  font-size: var(--font-size-sm);
-  color: var(--color-gray-500);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-600);
+  /* line-height: 1.2; */
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1200px) {
   .statsContainer {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-3);
   }
 }
 
 @media (max-width: 576px) {
   .statsContainer {
     grid-template-columns: 1fr;
+    gap: var(--spacing-3);
   }
-  
+
   .statCard {
-    padding: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
   }
 }
