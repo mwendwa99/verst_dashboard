@@ -4,8 +4,6 @@
 
 This project is designed to provide a comprehensive dashboard solution for monitoring and analyzing data related to the Ministry of Environment & Forestry. It demonstrates a structured approach to solving data visualization challenges using React and Vite.
 
----
-
 ## Design Approach
 
 ### Architecture
@@ -27,8 +25,6 @@ This project is designed to provide a comprehensive dashboard solution for monit
 2. DRY (Don't Repeat Yourself): Reusable code is emphasized.
 3. Test-driven development (TDD): Unit tests are written to ensure reliability.
 
----
-
 ## Technologies Used
 
 - **Frontend Framework**: React 19
@@ -40,8 +36,6 @@ This project is designed to provide a comprehensive dashboard solution for monit
 - **State Management**: React Context API
 - **Routing**: React Router DOM
 
----
-
 ## Assumptions
 
 The following assumptions were made during the development of this project:
@@ -50,8 +44,6 @@ The following assumptions were made during the development of this project:
 2. **Image Assets**: Uses placeholder images - assumes real project
 3. **Browser Support**: Targets modern browsers with CSS Grid and Flexbox support
 4. **Screen Sizes**: Optimized for desktop (1024px+) and tablet (768px+) with mobile responsiveness
-
----
 
 ## Instructions to Run the Project Locally
 
@@ -86,8 +78,6 @@ Ensure you have the following installed on your system:
 
 4. **Open your browser**
    Navigate to `http://localhost:5173` to view the application
-
----
 
 ## License
 
