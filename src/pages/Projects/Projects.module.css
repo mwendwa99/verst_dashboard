@@ -1,7 +1,6 @@
 .projects {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-6);
 }
 
 .pageTitle {
@@ -49,6 +48,13 @@
   box-shadow: var(--shadow-soft);
 }
 
+@media (max-width: 768px) {
+  .mainContent {
+    padding: var(--spacing-6);
+    max-width: 350px;
+  }
+}
+
 .summaryText {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -57,19 +63,18 @@
 
 .twoColumnGrid {
   display: grid;
-  grid-template-columns: 1fr; /* Single column on small screens */
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
 @media (min-width: 768px) {
   .twoColumnGrid {
-    grid-template-columns: 2fr 1fr; /* Two columns on larger screens */
+    grid-template-columns: 2fr 1fr;
   }
 }
 .container {
   display: flex;
   flex-direction: column;
-  /* gap: var(--spacing-6); */
 }
 
 .pageTitle {
@@ -132,7 +137,7 @@
   line-height: 1.6;
   margin: 0;
 }
-/* Button styles */
+
 .viewLetterBtn {
   background-color: #1976d2;
   color: white;
@@ -164,4 +169,109 @@
 
 .approvedBtn:hover {
   background-color: #1b5e20;
+}
+.topGrid {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+@media (max-width: 1100px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.notificationsCard {
+  background: var(--color-white);
+  border-radius: var(--border-radius-2xl);
+  box-shadow: var(--shadow-soft);
+  padding: var(--spacing-6) var(--spacing-6) var(--spacing-4) var(--spacing-6);
+  min-width: 280px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  position: relative;
+}
+
+.notificationsHeader {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-700);
+  margin-bottom: var(--spacing-2);
+}
+
+.notificationItem {
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.notificationTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-700);
+  margin-bottom: var(--spacing-1);
+}
+
+.notificationDesc {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-600);
+  margin-bottom: var(--spacing-2);
+}
+
+.progressBarContainer {
+  background: var(--color-gray-200);
+  border-radius: 8px;
+  height: 7px;
+  width: 100%;
+  margin-bottom: var(--spacing-2);
+  overflow: hidden;
+}
+
+.progressBar {
+  background: var(--color-primary-500);
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.3s;
+}
+
+.notificationClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--color-gray-400);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 2.5fr 1.2fr;
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+@media (max-width: 1100px) {
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sdgGoalsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-6);
+  margin-top: var(--spacing-4);
+}
+
+@media (max-width: 900px) {
+  .sdgGoalsGrid {
+    grid-template-columns: 1fr;
+  }
 }
