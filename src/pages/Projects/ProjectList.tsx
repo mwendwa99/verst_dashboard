@@ -76,9 +76,10 @@ const ProjectList: React.FC = () => {
         <ProjectLocationMap />
       </SectionCard>
 
-      <SectionCard title="SDG Goals" fullWidth>
+      <div className={styles.sdgContainer}>
+        <h3 className={styles.sectionTitle}>SDG Goals</h3>
         <SDGGoalsSection />
-      </SectionCard>
+      </div>
     </main>
   );
 };
