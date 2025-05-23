@@ -39,6 +39,7 @@ const ProjectList: React.FC = () => {
       <div className={styles.topGrid}>
         <SectionCard
           title="Project Summary"
+          divider
           headerActions={
             <>
               <button className={styles.viewLetterBtn}>
@@ -63,7 +64,7 @@ const ProjectList: React.FC = () => {
       </div>
 
       <div className={styles.twoColumnGrid}>
-        <SectionCard title="Project Details">
+        <SectionCard title="Project Details" divider>
           <ProjectDetailsSection />
         </SectionCard>
         <SectionCard title="Project Images">
