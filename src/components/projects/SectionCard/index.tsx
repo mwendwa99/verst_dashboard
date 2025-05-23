@@ -5,16 +5,23 @@ interface SectionCardProps {
   title: string;
   children: React.ReactNode;
   fullWidth?: boolean;
+  headerActions?: React.ReactNode;
 }
 
 const SectionCard: React.FC<SectionCardProps> = ({
   title,
   children,
   fullWidth,
+  headerActions,
 }) => {
   return (
     <section className={`${styles.card} ${fullWidth ? styles.fullWidth : ""}`}>
-      <h2 className={styles.cardTitle}>{title}</h2>
+      <div className={styles.cardHeader}>
+        <h2 className={styles.cardTitle}>{title}</h2>
+        {headerActions && (
+          <div className={styles.headerActions}>{headerActions}</div>
+        )}
+      </div>
       <div className={styles.cardContent}>{children}</div>
     </section>
   );

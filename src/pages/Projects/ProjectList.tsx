@@ -18,16 +18,27 @@ const ProjectList: React.FC = () => {
         <ProjectTabs />
       </div>
 
-      <SectionCard title="Project Summary">
-        <p className={styles.summaryText}>
-          The Kilifi Solar Project aims to provide sustainable and affordable
-          solar energy solutions to rural communities in Kilifi County. This
-          initiative focuses on installing solar panels for households and small
-          businesses, reducing reliance on traditional energy sources, and
-          promoting environmental sustainability. The project also includes
-          community training programs on solar panel maintenance and energy
-          conservation.
-        </p>
+      <SectionCard
+        title="Project Summary"
+        headerActions={
+          <>
+            <button className={styles.viewLetterBtn}>
+              VIEW LETTER OF NO OBJECTION
+            </button>
+            <button className={styles.approvedBtn}>Approved</button>
+          </>
+        }
+      >
+        <div>
+          <h3 className={styles.sectionTitle}>Project Description</h3>
+          <p className={styles.summaryText}>
+            The project aims to address the lack of reliable and sustainable
+            electricity in the rural areas of Kilifi County, located on the
+            Kenyan coast. This initiative is designed to harness the abundant
+            solar energy in the region, transforming it into a reliable source
+            of power for the local community.
+          </p>
+        </div>
       </SectionCard>
 
       <div className={styles.twoColumnGrid}>
