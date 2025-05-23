@@ -1,112 +1,314 @@
 .overviewContainer {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  padding: 25px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  font-family: var(--font-family);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-md);
 }
 
-.projectTitle {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 15px;
+.headerActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-8);
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-2) var(--spacing-4);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-white);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+  transition: background-color var(--transition-fast) ease,
+    border-color var(--transition-fast) ease;
+}
+
+.actionButton:hover {
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-400);
 }
 
 .metricsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-10);
 }
 
-.metricItem {
+.metricCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.metricIcon {
+  flex-shrink: 0;
+}
+
+.metricDetails {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  text-align: center;
 }
 
 .metricValue {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #5831e8; /* Primary purple */
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--spacing-1);
 }
 
 .metricLabel {
-  font-size: 0.85rem;
-  color: #666;
-  white-space: nowrap; /* Prevent label wrapping */
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+  white-space: normal;
+  line-height: var(--line-height-tight);
 }
 
-.progressBarContainer {
+.timelineWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding-top: var(--spacing-8);
+  padding-bottom: var(--spacing-8);
+}
+
+.dottedLineTop,
+.dottedLineBottom {
+  position: absolute;
+  left: 0;
+  width: 95%;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-500) 50%,
+    transparent 0%
+  );
+  background-position: bottom;
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  z-index: 0;
+}
+
+.dottedLineTop {
+  top: -10px;
+  left: 25px;
+}
+
+.dottedLineBottom {
+  left: 25px;
+  bottom: var(--spacing-6);
+}
+
+.youAreHereContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: -20px;
+  left: 25px;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.youAreHereLabel {
+  background-color: #deffc9;
+  color: var(--color-primary-600);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  padding: var(--spacing-1) var(--spacing-2);
+  margin-bottom: var(--spacing-1);
+  border-radius: var(--border-radius-sm);
+}
+
+.timelineContainer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 80%; /* Adjust width as needed */
-  margin: 20px auto 0;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100px;
+  position: relative;
+}
+
+.timelineContainer::-webkit-scrollbar {
+  height: 6px;
+}
+
+.timelineContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.timelineContainer::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-400);
+  border-radius: var(--border-radius-full);
+}
+
+.timelineStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  flex-basis: 140px;
+  padding: 0 var(--spacing-2);
   position: relative;
 }
 
 .progressCircle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #e0e0e0;
+  --progress-circle-size: 48px;
+  width: var(--progress-circle-size);
+  height: var(--progress-circle-size);
+  border-radius: var(--border-radius-md);
+
+  border-radius: 12px;
+  background-color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1; /* Ensure circles are above lines */
-  transition: background-color 0.3s ease;
-}
-
-.progressCircle.completed {
-  background-color: #19bf98; /* Green for completed */
+  z-index: 2;
+  margin-bottom: var(--spacing-2);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-gray-300);
+  color: var(--color-gray-600);
+  transition: border-color var(--transition-fast) ease,
+    color var(--transition-fast) ease,
+    background-color var(--transition-fast) ease,
+    box-shadow var(--transition-fast) ease;
 }
 
 .progressCircle.active {
-  background-color: #5831e8; /* Purple for active */
-  box-shadow: 0 0 0 4px rgba(88, 49, 232, 0.3); /* Glow for active */
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-500);
+
+  box-shadow: none;
 }
 
-.progressCircle.pending {
-  border: 2px solid #ccc;
-  background-color: #f0f2f5;
+.stepLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+  max-width: 100%;
+  white-space: normal;
+  line-height: var(--line-height-tight);
+  transition: color var(--transition-fast) ease;
 }
 
-.progressLine {
+.stepLabel.active {
+  color: var(--color-primary-500);
+}
+
+.timelineStepLine {
   flex-grow: 1;
-  height: 4px;
-  background-color: #e0e0e0;
-  margin: 0 -5px; /* Overlap with circles slightly */
-  position: relative;
-  transition: background-color 0.3s ease;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-500) 50%,
+    transparent 0%
+  );
+  background-position: top;
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  z-index: 0;
+
+  margin-left: calc(-var(--spacing-2) + var(--progress-circle-size) / 2);
+  margin-right: calc(-var(--spacing-2) + var(--progress-circle-size) / 2);
 }
 
-.progressLine.completed {
-  background-color: #19bf98; /* Green for completed line segment */
-}
-
-/* Responsive adjustments */
-@media (max-width: 480px) {
-  .projectTitle {
-    font-size: 1.5rem;
+@media (max-width: 768px) {
+  .metricsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--spacing-3);
   }
+
+  .metricCard {
+    padding: var(--spacing-3);
+  }
+
   .metricValue {
-    font-size: 1.2rem;
+    font-size: var(--font-size-xl);
   }
+
   .metricLabel {
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
   }
-  .progressBarContainer {
-    width: 95%; /* Adjust width for smaller screens */
+
+  .timelineWrapper {
+    padding-top: var(--spacing-6);
+    padding-bottom: var(--spacing-6);
   }
+
+  .dottedLineTop {
+    top: var(--spacing-4);
+  }
+
+  .dottedLineBottom {
+    bottom: var(--spacing-4);
+  }
+
+  .youAreHereContainer {
+    top: var(--spacing-1);
+    left: var(--spacing-4);
+    transform: translateX(calc(90px));
+  }
+
+  .timelineStep {
+    flex-basis: 120px;
+    padding: 0 var(--spacing-2);
+  }
+
   .progressCircle {
-    width: 25px;
-    height: 25px;
+    --progress-circle-size: 40px;
+    width: var(--progress-circle-size);
+    height: var(--progress-circle-size);
+    border-radius: 10px;
+  }
+
+  .stepLabel {
+    font-size: var(--font-size-xs);
+    max-width: 100%;
+  }
+
+  .timelineStepLine {
+    margin-left: calc(-var(--spacing-2) + var(--progress-circle-size) / 2);
+    margin-right: calc(-var(--spacing-2) + var(--progress-circle-size) / 2);
+  }
+}
+
+@media (max-width: 480px) {
+  .metricsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3);
+  }
+
+  .headerActions {
+    justify-content: space-between;
+    gap: var(--spacing-2);
+  }
+
+  .actionButton {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-1_5) var(--spacing-3);
+  }
+
+  .metricCard {
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+
+  .metricIcon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .timelineWrapper {
+    display: none;
   }
 }

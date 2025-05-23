@@ -5,7 +5,8 @@ import { Outlet } from "react-router-dom";
 const Projects: React.FC = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.pageTitle}>Project Lists</h1>
+      <p className={styles.pageSubtitle}>Project Name</p>
+      <h1 className={styles.pageTitle}>Kilifi Solar Project</h1>
 
       <Outlet />
     </div>
