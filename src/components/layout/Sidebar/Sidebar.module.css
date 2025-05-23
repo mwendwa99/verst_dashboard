@@ -7,13 +7,14 @@
   top: 0;
   left: 0;
   z-index: var(--z-index-fixed);
-  /* Use fast transition and will-change for optimal performance */
+
   transition: width var(--transition-fast) ease-out,
     transform var(--transition-fast) ease-out;
   will-change: width, transform;
   padding: var(--spacing-4) 0;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .sidebar.collapsed {
@@ -34,18 +35,20 @@
 }
 
 .collapsed .logo img {
-  /* display: none; */
 }
 
 .nav {
   flex: 1;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .navList {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);
+  width: 100%;
 }
 
 .navItem {
@@ -60,7 +63,7 @@
   gap: var(--spacing-3);
   color: var(--color-gray-700);
   position: relative;
-  /* Fast transition only for critical properties */
+
   transition: background-color var(--transition-fast) ease-out,
     color var(--transition-fast) ease-out;
 }
@@ -122,7 +125,7 @@
 }
 
 .collapsed .subMenu {
-  display: none; /* Hides the submenu when collapsed */
+  display: none;
 }
 
 .subMenu.open {
@@ -133,17 +136,17 @@
 }
 
 .submenuArrow {
-  margin-left: auto; /* Pushes the arrow to the right */
+  margin-left: auto;
   transition: transform var(--transition-fast) ease-out;
   will-change: transform;
 }
 
 .submenuArrow.open {
-  transform: rotate(180deg); /* Rotates the arrow when open */
+  transform: rotate(180deg);
 }
 
 .collapsed .submenuArrow {
-  display: none; /* Hides the arrow when collapsed */
+  display: none;
 }
 
 .footer {
@@ -151,6 +154,9 @@
   border-top: 1px solid var(--color-gray-200);
   font-size: var(--font-size-xs);
   color: var(--color-gray-500);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
 }
 
 .collapsed .footer span {
@@ -179,19 +185,73 @@
   color: var(--color-primary-600);
 }
 
+.mobileToggle {
+  position: fixed;
+  top: var(--spacing-4);
+  left: var(--spacing-4);
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: calc(var(--z-index-fixed) + 1);
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--transition-fast) ease-out;
+}
+
+.mobileToggle:hover {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-600);
+}
+
 @media (max-width: 768px) {
   .sidebar {
-    width: var(--sidebar-width-collapsed);
+    width: 280px;
+    height: 100vh;
     transform: translateX(0);
+    overflow-y: auto;
   }
 
   .sidebar.collapsed {
     transform: translateX(-100%);
   }
 
+  .sidebar .navText {
+    display: block;
+  }
+
+  .sidebar .navLink {
+    justify-content: flex-start;
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+
+  .sidebar .submenuArrow {
+    display: block;
+  }
+
   .toggleButton {
-    right: -40px;
+    right: var(--spacing-4);
+    top: var(--spacing-4);
     background-color: var(--color-white);
     box-shadow: var(--shadow-md);
+  }
+
+  .footer {
+    display: flex;
+    margin-top: auto;
+  }
+
+  .collapsed .footer {
+    display: none;
+  }
+
+  .sidebar .subMenu.open {
+    display: block;
+    max-height: 1000px;
+    visibility: visible;
   }
 }

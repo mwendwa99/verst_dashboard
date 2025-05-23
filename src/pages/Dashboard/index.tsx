@@ -13,11 +13,11 @@ const Dashboard: React.FC = () => {
     projectCategories,
     chartData,
     userInsights,
-
     totalUsers,
   } = useAppContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState("THIS WEEK");
+  const [isMobile, setIsMobile] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -35,6 +35,21 @@ const Dashboard: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    checkIfMobile();
+
+    // Add event listener
+    window.addEventListener("resize", checkIfMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
   const handlePeriodSelect = (period: string) => {
     setSelectedPeriod(period);
     setIsDropdownOpen(false);
@@ -44,7 +59,7 @@ const Dashboard: React.FC = () => {
     <div className={styles.dashboard}>
       <div className={styles.card}>
         <div className={styles.headerWithFilter}>
-          <div>
+          <div className={styles.headerContent}>
             <h1 className={styles.pageTitle}>Statistics</h1>
             <div className={styles.pageSubtitle}>Dashboard Summary</div>
           </div>
@@ -52,6 +67,8 @@ const Dashboard: React.FC = () => {
             <button
               className={styles.filterButton}
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              aria-expanded={isDropdownOpen}
+              aria-haspopup="true"
             >
               {selectedPeriod}
               <ChevronDown
@@ -62,22 +79,25 @@ const Dashboard: React.FC = () => {
               />
             </button>
             {isDropdownOpen && (
-              <div className={styles.dropdownMenu}>
+              <div className={styles.dropdownMenu} role="menu">
                 <button
                   className={styles.dropdownItem}
                   onClick={() => handlePeriodSelect("TODAY")}
+                  role="menuitem"
                 >
                   TODAY
                 </button>
                 <button
                   className={styles.dropdownItem}
                   onClick={() => handlePeriodSelect("THIS WEEK")}
+                  role="menuitem"
                 >
                   THIS WEEK
                 </button>
                 <button
                   className={styles.dropdownItem}
                   onClick={() => handlePeriodSelect("THIS MONTH")}
+                  role="menuitem"
                 >
                   THIS MONTH
                 </button>
@@ -96,8 +116,12 @@ const Dashboard: React.FC = () => {
       <CategoryTabs categories={projectCategories} chartData={chartData} />
 
       <div className={styles.chartsGrid}>
-        <UserInsightsChart data={userInsights} totalUsers={totalUsers} />
-        <KenyaMap />
+        <div className={styles.chartContainer}>
+          <UserInsightsChart data={userInsights} totalUsers={totalUsers} />
+        </div>
+        <div className={styles.mapContainer}>
+          <KenyaMap />
+        </div>
       </div>
     </div>
   );

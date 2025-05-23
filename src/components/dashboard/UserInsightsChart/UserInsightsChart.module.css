@@ -1,16 +1,16 @@
 .container {
   background-color: var(--color-white);
   padding: var(--spacing-6);
-  box-shadow: var(--shadow-sm);
+  /* box-shadow: var(--shadow-sm); */
   height: 100%;
-  border-radius: var(--border-radius-xl);
+  /* border-radius: var(--border-radius-xl); */
 }
 
-.container:hover {
+/* .container:hover {
   box-shadow: var(--shadow-soft);
   transform: translateY(-1px);
   transition: all var(--transition-fast);
-}
+} */
 
 .header {
   margin-bottom: var(--spacing-2);

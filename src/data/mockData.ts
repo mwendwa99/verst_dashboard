@@ -151,18 +151,18 @@ export const mockProjects: Project[] = [
 ];
 
 export const mockChartData: ChartData[] = [
-  { name: "Jan", approved: 650, pending: 300, rejected: 200 },
-  { name: "Feb", approved: 200, pending: 290, rejected: 150 },
-  { name: "Mar", approved: 35, pending: 18, rejected: 12 },
-  { name: "Apr", approved: 94, pending: 14, rejected: 9 },
-  { name: "May", approved: 42, pending: 180, rejected: 14 },
-  { name: "Jun", approved: 48, pending: 16, rejected: 12 },
-  { name: "Jul", approved: 38, pending: 18, rejected: 15 },
-  { name: "Aug", approved: 52, pending: 20, rejected: 16 },
-  { name: "Sep", approved: 40, pending: 15, rejected: 13 },
-  { name: "Oct", approved: 45, pending: 17, rejected: 14 },
-  { name: "Nov", approved: 49, pending: 19, rejected: 15 },
-  { name: "Dec", approved: 42, pending: 16, rejected: 12 },
+  { name: "Jan", approved: 85, pending: 45, rejected: 30 },
+  { name: "Feb", approved: 65, pending: 50, rejected: 35 },
+  { name: "Mar", approved: 75, pending: 30, rejected: 20 },
+  { name: "Apr", approved: 94, pending: 40, rejected: 25 },
+  { name: "May", approved: 80, pending: 55, rejected: 30 },
+  { name: "Jun", approved: 90, pending: 35, rejected: 25 },
+  { name: "Jul", approved: 75, pending: 35, rejected: 30 },
+  { name: "Aug", approved: 95, pending: 45, rejected: 35 },
+  { name: "Sep", approved: 70, pending: 30, rejected: 25 },
+  { name: "Oct", approved: 60, pending: 40, rejected: 35 },
+  { name: "Nov", approved: 65, pending: 45, rejected: 35 },
+  { name: "Dec", approved: 100, pending: 0, rejected: 0 },
 ];
 
 export const mockUserInsights: UserInsight[] = [

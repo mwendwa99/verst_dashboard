@@ -1,5 +1,5 @@
-import React, { useState, memo } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import React, { useState, memo, useEffect } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   BarChart2,
@@ -12,10 +12,10 @@ import {
   PlusCircle,
   List,
   FileText,
-  CheckCircle,
   ChevronDown,
   Check,
   SquareCheck,
+  Menu,
 } from "lucide-react";
 import { useAppContext } from "../../../context/AppContext";
 import styles from "./Sidebar.module.css";
@@ -116,119 +116,162 @@ ${isOpen ? styles.open : ""}`}
   </ul>
 ));
 
-const MenuItem = memo(({ item, location, hasSubmenu = false, children }) => {
-  const [isOpen, setIsOpen] = useState(
-    hasSubmenu &&
-      item.submenuItems?.some((subItem) =>
-        location.pathname.includes(subItem.path.split("/").filter(Boolean)[0])
-      )
-  );
+const MenuItem = memo(
+  ({
+    item,
+    location,
+    hasSubmenu = false,
+    children,
+    isSidebarOpen,
+    isMobile,
+  }) => {
+    const navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(
+      hasSubmenu &&
+        item.submenuItems?.some((subItem) =>
+          location.pathname.includes(subItem.path.split("/").filter(Boolean)[0])
+        )
+    );
 
-  const isActive = hasSubmenu
-    ? item.submenuItems?.some((subItem) =>
-        location.pathname.includes(subItem.path.split("/").filter(Boolean)[0])
-      )
-    : location.pathname === item.path ||
-      location.pathname.includes(item.path.split("/").filter(Boolean)[0]);
+    const isActive = hasSubmenu
+      ? item.submenuItems?.some((subItem) =>
+          location.pathname.includes(subItem.path.split("/").filter(Boolean)[0])
+        )
+      : location.pathname === item.path ||
+        location.pathname.includes(item.path.split("/").filter(Boolean)[0]);
 
-  const handleClick = (e) => {
-    if (hasSubmenu) {
-      e.preventDefault();
-      setIsOpen(!isOpen);
-    }
-  };
+    const handleClick = (e) => {
+      if (hasSubmenu) {
+        e.preventDefault();
+        setIsOpen(!isOpen);
+      } else if (!isSidebarOpen && !isMobile) {
+        e.preventDefault();
+        navigate(item.path);
+      }
+    };
 
-  return (
-    <li
-      className={`${styles.navItem} ${isActive ? styles.active : ""} ${
-        hasSubmenu ? styles.navItemWithSubmenu : ""
-      } ${isOpen ? styles.open : ""}`}
-    >
-      <NavLink
-        to={hasSubmenu ? "#" : item.path}
-        className={({ isActive: linkActive }) =>
-          `${styles.navLink} ${
-            linkActive && !hasSubmenu ? styles.active : ""
-          } ${isActive && hasSubmenu ? styles.active : ""}`
-        }
-        onClick={handleClick}
+    return (
+      <li
+        className={`${styles.navItem} ${isActive ? styles.active : ""} ${
+          hasSubmenu ? styles.navItemWithSubmenu : ""
+        } ${isOpen ? styles.open : ""}`}
       >
-        {({ isActive: linkActive }) => (
-          <>
-            <span
-              className={`${styles.navIcon} ${
-                (linkActive && !hasSubmenu) || (isActive && hasSubmenu)
-                  ? styles.active
-                  : ""
-              }`}
-            >
-              {item.icon}
-            </span>
-            <span className={styles.navText}>{item.label}</span>
-            {hasSubmenu && (
-              <ChevronDown
-                size={16}
-                className={`${styles.submenuArrow} ${
-                  isOpen ? styles.open : ""
+        <NavLink
+          to={hasSubmenu ? "#" : item.path}
+          className={({ isActive: linkActive }) =>
+            `${styles.navLink} ${
+              linkActive && !hasSubmenu ? styles.active : ""
+            } ${isActive && hasSubmenu ? styles.active : ""}`
+          }
+          onClick={handleClick}
+        >
+          {({ isActive: linkActive }) => (
+            <>
+              <span
+                className={`${styles.navIcon} ${
+                  (linkActive && !hasSubmenu) || (isActive && hasSubmenu)
+                    ? styles.active
+                    : ""
                 }`}
-              />
-            )}
-          </>
-        )}
-      </NavLink>
-      {children && isOpen && children}
-    </li>
-  );
-});
+              >
+                {item.icon}
+              </span>
+              <span className={styles.navText}>{item.label}</span>
+              {hasSubmenu && (
+                <ChevronDown
+                  size={16}
+                  className={`${styles.submenuArrow} ${
+                    isOpen ? styles.open : ""
+                  }`}
+                />
+              )}
+            </>
+          )}
+        </NavLink>
+        {children && isOpen && children}
+      </li>
+    );
+  }
+);
 
 const Sidebar = () => {
   const location = useLocation();
   const { isSidebarOpen, toggleSidebar } = useAppContext();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIfMobile();
+
+    window.addEventListener("resize", checkIfMobile);
+
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
 
   return (
-    <aside
-      className={`${styles.sidebar} ${isSidebarOpen ? "" : styles.collapsed}`}
-    >
-      <div className={styles.logo}>
-        <img
-          src="/images/ministry_logo.png"
-          alt="Ministry of Environment & Forestry"
-        />
-      </div>
+    <>
+      {}
+      {isMobile && !isSidebarOpen && (
+        <button className={styles.mobileToggle} onClick={toggleSidebar}>
+          <Menu size={24} />
+        </button>
+      )}
 
-      <button className={styles.toggleButton} onClick={toggleSidebar}>
-        {isSidebarOpen ? (
-          <ChevronsLeft size={16} />
-        ) : (
-          <ChevronsRight size={16} />
-        )}
-      </button>
+      <aside
+        className={`${styles.sidebar} ${isSidebarOpen ? "" : styles.collapsed}`}
+      >
+        <div className={styles.logo}>
+          <img
+            src="/images/ministry_logo.png"
+            alt="Ministry of Environment & Forestry"
+          />
+        </div>
 
-      <nav className={styles.nav}>
-        <ul className={styles.navList}>
-          {menuItems.map((item) =>
-            item.submenuItems ? (
-              <MenuItem
-                key={item.path}
-                item={item}
-                location={location}
-                hasSubmenu={true}
-              >
-                <SubMenu isOpen={true} items={item.submenuItems} />
-              </MenuItem>
-            ) : (
-              <MenuItem key={item.path} item={item} location={location} />
-            )
+        <button className={styles.toggleButton} onClick={toggleSidebar}>
+          {isSidebarOpen ? (
+            <ChevronsLeft size={16} />
+          ) : (
+            <ChevronsRight size={16} />
           )}
-        </ul>
-      </nav>
+        </button>
 
-      <div className={styles.footer}>
-        <span>Vent Carbon</span>
-        <span>© 2024 All Rights Reserved</span>
-        <span>Made with ❤️ by Vent Carbon</span>
-      </div>
-    </aside>
+        <nav className={styles.nav}>
+          <ul className={styles.navList}>
+            {menuItems.map((item) =>
+              item.submenuItems ? (
+                <MenuItem
+                  key={item.path}
+                  item={item}
+                  location={location}
+                  hasSubmenu={true}
+                  isSidebarOpen={isSidebarOpen}
+                  isMobile={isMobile}
+                >
+                  <SubMenu isOpen={true} items={item.submenuItems} />
+                </MenuItem>
+              ) : (
+                <MenuItem
+                  key={item.path}
+                  item={item}
+                  location={location}
+                  isSidebarOpen={isSidebarOpen}
+                  isMobile={isMobile}
+                />
+              )
+            )}
+          </ul>
+        </nav>
+
+        <div className={styles.footer}>
+          <span>Verst Carbon</span>
+          <span>© 2024 All Rights Reserved</span>
+          <span>Made with ❤️ by Verst Carbon</span>
+        </div>
+      </aside>
+    </>
   );
 };
 
