@@ -5,7 +5,6 @@ import ProjectDetailsSection from "../../components/projects/ProjectDetails";
 import ProjectImagesSection from "../../components/projects/ProjectImagesSection";
 import ProjectLocationMap from "../../components/projects/ProjectLocationMap";
 import SDGGoalsSection from "../../components/projects/SDGGoalsSection";
-import NotificationsSection from "../../components/projects/NotificationsSection";
 import styles from "./Projects.module.css";
 import ProjectTabs from "../../components/projects/ProjectTabs";
 
@@ -20,7 +19,7 @@ const NotificationsCard = () => (
         3/14 days remaining for a Letter of No Objection to be issued.
       </div>
       <div className={styles.progressBarContainer}>
-        <div className={styles.progressBar} style={{ width: "21%" }} />
+        <div className={styles.progressBar} style={{ width: "70%" }} />
       </div>
       <button className={styles.notificationClose}>×</button>
     </div>

@@ -149,6 +149,8 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   box-shadow: var(--shadow-btn);
+
+  font-size: var(--font-size-xs);
 }
 
 .viewLetterBtn:hover {
@@ -165,6 +167,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
+
+  font-size: var(--font-size-xs);
 }
 
 .approvedBtn:hover {
@@ -172,7 +176,7 @@
 }
 .topGrid {
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: var(--spacing-6);
   margin-bottom: var(--spacing-6);
 }
@@ -205,33 +209,35 @@
 
 .notificationItem {
   position: relative;
-  padding-right: 1.5rem;
+
+  background-color: var(--color-primary-50);
+  padding: var(--spacing-4);
+  border-radius: var(--border-radius-lg);
 }
 
 .notificationTitle {
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
   color: var(--color-primary-700);
   margin-bottom: var(--spacing-1);
 }
 
 .notificationDesc {
   font-size: var(--font-size-xs);
-  color: var(--color-gray-600);
-  margin-bottom: var(--spacing-2);
+  color: var(--color-gray-500);
+  margin-bottom: var(--spacing-4);
 }
 
 .progressBarContainer {
-  background: var(--color-gray-200);
+  background: var(--color-primary-100);
   border-radius: 8px;
-  height: 7px;
+  height: 10px;
   width: 100%;
   margin-bottom: var(--spacing-2);
   overflow: hidden;
 }
 
 .progressBar {
-  background: var(--color-primary-500);
+  background: var(--color-primary-700);
   height: 100%;
   border-radius: 8px;
   transition: width 0.3s;
@@ -243,11 +249,11 @@
   right: 0;
   background: none;
   border: none;
-  color: var(--color-gray-400);
-  font-size: 1.2rem;
+  color: var(--color-primary-200);
+  font-size: 1.5rem;
   cursor: pointer;
   line-height: 1;
-  padding: 0;
+  padding: var(--spacing-2);
 }
 
 .detailsGrid {
