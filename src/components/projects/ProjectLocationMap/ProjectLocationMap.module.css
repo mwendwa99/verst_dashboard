@@ -1,14 +1,19 @@
 .mapContainer {
   width: 100%;
-  height: 400px; /* Fixed height for the map container */
-  background-color: #f8f8f8;
-  border-radius: 8px;
+  aspect-ratio: 3.5 / 1;
+  min-height: 120px;
+  max-height: 400px;
+  background: var(--color-gray-100);
+  border-radius: var(--border-radius-xl);
   overflow: hidden;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
+  display: flex;
 }
 
-.mapSVG {
-  width: 100%;
-  height: 100%;
-  display: block;
+@media (max-width: 600px) {
+  .mapContainer {
+    border-radius: var(--border-radius-lg);
+    aspect-ratio: 2.2 / 1;
+    min-height: 80px;
+  }
 }

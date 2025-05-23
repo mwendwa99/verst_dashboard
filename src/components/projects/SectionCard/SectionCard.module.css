@@ -4,7 +4,7 @@
   padding: var(--spacing-6);
   box-shadow: var(--shadow-soft);
 
-  min-height: 350px;
+  /* min-height: 350px; */
 }
 
 .cardHeader {

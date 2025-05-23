@@ -1,12 +1,12 @@
 .imagesLayout {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3);
+  gap: var(--spacing-4);
 }
 
 .mainImageWrapper {
   width: 100%;
-  aspect-ratio: 2.1 / 1;
+  aspect-ratio: 4 / 1;
   border-radius: var(--border-radius-xl);
   overflow: hidden;
   background: var(--color-gray-100);
@@ -28,7 +28,7 @@
 
 .subImage {
   flex: 1 1 0;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 2 / 1;
   object-fit: cover;
   border-radius: var(--border-radius-xl);
   background: var(--color-gray-100);
